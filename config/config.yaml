@@ -1,0 +1,29 @@
+schedule:
+  trigger_time: "09:45:00"
+
+notification:
+  sendkey: ""
+  email:
+    to: "494256683@qq.com"
+    smtp_user: "494256683@qq.com"
+    smtp_pass: "geuzphtdcwcsbiia"
+
+# 场内标普500 ETF
+funds:
+  etf:
+    - "513500"  # 博时标普500ETF
+    - "513650"  # 南方标普500ETF
+    - "159612"  # 国泰标普500ETF
+    - "159655"  # 华夏标普500ETF
+
+# 场外标普500联接/指数基金（仅A类）
+  index:
+    - "050025"  # 博时标普500ETF联接A
+    - "161125"  # 易方达标普500指数A (LOF)
+    - "018064"  # 华夏标普500ETF联接A
+    - "007721"  # 天弘标普500ETF联接A
+    - "017028"  # 国泰标普500ETF联接A
+    - "017641"  # 摩根标普500指数A
+
+data_sources:
+  eastmoney: "https://fund.eastmoney.com"
