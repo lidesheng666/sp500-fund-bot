@@ -1,0 +1,37 @@
+name: 标普500基金每日报告
+
+on:
+  schedule:
+    # UTC 时间 01:35 = 北京时间 09:35（GitHub Actions 用 UTC）
+    - cron: '35 1 * * 1-5'
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  daily-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 安装依赖
+        run: pip install requests pyyaml schedule
+
+      - name: 执行报告任务
+        env:
+          EMAIL_TO: "494256683@qq.com"
+          EMAIL_USER: "494256683@qq.com"
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          TZ: Asia/Shanghai
+        run: python main.py --once
+
+      - name: 上传报告文件
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-report
+          path: data/report.md
+          retention-days: 30
