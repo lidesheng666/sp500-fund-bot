@@ -6,7 +6,7 @@ notification:
   email:
     to: "494256683@qq.com"
     smtp_user: "494256683@qq.com"
-    smtp_pass: ""
+    smtp_pass: "geuzphtdcwcsbiia"
 
 funds:
   etf:
